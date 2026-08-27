@@ -1,27 +1,70 @@
 const posts=[
- {emoji:"🌅",likes:"126 j'aime",caption:"Quelques jours à Willow Lake. J'avais besoin de calme.",comments:["thomas.d: Tu aurais pu prévenir.","lena.martin: Je sais."]},
- {emoji:"🐎",likes:"89 j'aime",caption:"Il est toujours là quand il faut. 🤎",comments:["naomi.r: Le cheval ou la personne ?","lena.martin: Haha."]},
- {emoji:"🍸",likes:"203 j'aime",caption:"Une soirée qui devait être tranquille.",comments:["clara.b: Spoiler : non.","paul_17: On en reparle."]},
- {emoji:"📷",likes:"71 j'aime",caption:"Archive. Ne pas supprimer.",comments:["thomas.d: Pourquoi tu gardes ça ?"]},
- {emoji:"🌙",likes:"154 j'aime",caption:"23:47.",comments:["naomi.r: Tu étais où ?"]},
- {emoji:"🌾",likes:"64 j'aime",caption:"Dimanche.",comments:[]},
- {emoji:"☕",likes:"92 j'aime",caption:"Matin difficile.",comments:["clara.b: Encore ?"]},
- {emoji:"🎞️",likes:"48 j'aime",caption:"Certains souvenirs devraient rester privés.",comments:[]}
+ {emoji:"☕",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV.",comments:["clara_m: Courage 😂","lola_tvr: Je prends les transmissions à 7h demain."]},
+ {emoji:"🌴",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça.",comments:["emma.r: Tu nous ramènes un peu de soleil ?"]},
+ {emoji:"🥐",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser.",comments:["margot: Team petit-déj salé ici."]},
+ {emoji:"🌊",likes:"44 j’aime",caption:"Pas envie de rentrer.",comments:["lucie: Ça se voit 😭"]},
+ {emoji:"🩺",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après.",comments:["anais: La vie d’infirmière quoi."]},
+ {emoji:"🏔️",likes:"36 j’aime",caption:"Le Pérou était complètement fou.",comments:["julie.p: Encore des photos !!"]},
+ {emoji:"🍜",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours.",comments:[]},
+ {emoji:"🌙",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo.",comments:["camille: Demain ça recommence 😭"]},
+ {emoji:"✈️",likes:"47 j’aime",caption:"Toujours partante pour repartir.",comments:["emma.r: Prochaine destination ?"]},
 ];
 
-const chats={
-"Thomas D.":{avatar:"TD",messages:[["them","Tu dois vraiment supprimer la photo."],["me","Quelle photo ?"],["them","Celle de Willow Lake."],["me","Tu me fais rire. Pourquoi ?"],["them","Parce qu'on voit qui était là."]]},
-"Naomi R.":{avatar:"NR",messages:[["them","Tu étais où hier soir ?"],["me","Chez moi."],["them","Léna."],["me","Quoi ?"],["them","Ne mens pas à tout le monde."]]},
-"Compte inconnu":{avatar:"?",messages:[["them","23h47. Parking."],["them","Même endroit."],["me","Qui êtes-vous ?"],["them","Tu sais très bien."]]}
+const chat=[
+["them","J’ai enfin fini ma journée."],
+["me","Et alors, tu as survécu ? 😌"],
+["them","À peine. J’ai passé ma journée à courir partout."],
+["me","Tu devrais apprendre à dire non de temps en temps."],
+["them","C’est toi qui dis ça ? 😂"],
+["me","Je suis infirmière, c’est différent. Je suis payée pour sauver des gens."],
+["them","Moi je suis juste payé pour faire semblant d’être organisé."],
+["me","Ça te ressemble assez bien."],
+["them","Tu sais que je commence à vraiment aimer parler avec toi ?"],
+["me","Tu commences seulement ?"],
+["them","Disons que je me suis habitué à attendre tes messages."],
+["me","C’est mignon ça."],
+["them","Je suis sérieux."],
+["me","Je sais."],
+["them","Au fait, je pensais à un truc aujourd’hui."],
+["me","Ça devient inquiétant."],
+["them","J’ai eu un ami quand j’étais plus jeune. Il est mort il y a quelques années."],
+["me","Oh… je suis désolée. Tu ne m’en avais jamais parlé."],
+["them","J’en parle rarement. Ça me fait toujours bizarre d’y repenser."],
+["me","Tu peux m’en parler si tu veux. Je ne vais pas te juger."],
+["them","Merci ❤️"],
+["me","Et sinon, raconte-moi quelque chose de moins triste."],
+["them","J’ai croisé mon ex aujourd’hui."],
+["me","La fameuse ex ?"],
+["them","Oui. Et je crois vraiment que je vais arrêter cette histoire pour de bon."],
+["me","Pour de bon ?"],
+["them","Oui. J’en ai marre de faire semblant. Surtout maintenant."],
+["me","Maintenant ? 👀"],
+["them","Tu sais très bien ce que je veux dire."],
+["me","Peut-être que j’aime bien te faire parler."],
+["them","Peut-être que j’aime bien quand tu me fais parler."],
+["me","Tu flirtes avec moi là ?"],
+["them","Depuis un moment, Lola."],
+["me","Alors continue."],
+["them","Avec plaisir. ❤️"],
+["me","Bonne nuit, Logan."],
+["them","Bonne nuit, Lola. Et demain tu m’envoies une photo de ton café."],
+["me","Seulement si tu m’envoies la tienne d’abord."],
+["them","Marché conclu."]
+];
+
+const stories={
+hawai:{title:"Hawai",emoji:"🌺🌊",caption:"Quelques jours au paradis. J’y retournerais demain sans réfléchir."},
+perou:{title:"Pérou",emoji:"🗿⛰️",caption:"Des paysages complètement dingues et beaucoup trop de photos."}
 };
 
 const grid=document.getElementById("grid");
-posts.forEach((p,i)=>{let d=document.createElement("div");d.className="tile";d.textContent=p.emoji;d.onclick=()=>showPost(i);grid.appendChild(d)});
+posts.forEach((p,i)=>{const d=document.createElement("div");d.className="tile";d.textContent=p.emoji;d.onclick=()=>showPost(i);grid.appendChild(d)});
 
 function activate(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
-function showPost(i){const p=posts[i];document.getElementById("postTitle").textContent=`lena.martin`;document.getElementById("postImage").textContent=p.emoji;document.getElementById("postLikes").textContent=p.likes;document.getElementById("postCaption").innerHTML="<b>lena.martin</b> "+p.caption;document.getElementById("postComments").innerHTML=p.comments.map(x=>`<div class="comment">${x}</div>`).join("");activate("postView")}
-function showDM(){document.getElementById("threads").innerHTML=Object.entries(chats).map(([name,c])=>`<div class="thread" onclick="showChat('${name}')"><div class="mini-avatar">${c.avatar}</div><div class="info"><b>${name}</b><br><small>${c.messages[c.messages.length-1][1]}</small></div></div>`).join("");activate("dmView")}
-function showChat(name){const c=chats[name];document.getElementById("chatName").textContent=name;document.getElementById("chat").innerHTML=c.messages.map(m=>`<div class="bubble ${m[0]}">${m[1]}</div>`).join("");activate("chatView")}
+function showPost(i){const p=posts[i];document.getElementById("postImage").textContent=p.emoji;document.getElementById("postImage").style.background=p.bg||getComputedStyle(document.querySelectorAll(".tile")[i]).background;document.getElementById("postLikes").textContent=p.likes;document.getElementById("postCaption").innerHTML="<b>lola_tvr</b> "+p.caption;document.getElementById("postComments").innerHTML=p.comments.map(x=>`<div class="comment">${x}</div>`).join("");activate("postView")}
+function openStory(key){const s=stories[key];document.getElementById("storyTitle").textContent=s.title;document.getElementById("storyImage").textContent=s.emoji;document.getElementById("storyCaption").textContent=s.caption;activate("storyView")}
+function showDM(){document.getElementById("threads").innerHTML=`<div class="thread" onclick="showChat()"><div class="mini-avatar">L</div><div class="info"><b>Logan</b><br><small>${chat[chat.length-1][1]}</small></div></div>`;activate("dmView")}
+function showChat(){document.getElementById("chat").innerHTML=chat.map(m=>`<div class="bubble ${m[0]}">${m[1]}</div>`).join("");activate("chatView")}
 document.getElementById("openDm").onclick=showDM;
 document.getElementById("homeBtn").onclick=()=>activate("profileView");
 document.getElementById("profileBtn").onclick=()=>activate("profileView");

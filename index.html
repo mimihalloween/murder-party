@@ -3,44 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Insta • Murder Party</title>
+<title>Lola • Instagram</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="phone">
   <header class="topbar">
     <div class="brand">Instagram</div>
-    <div class="top-icons"><button aria-label="J'aime">♡</button><button id="openDm" aria-label="Messages">♢</button></div>
+    <div class="top-icons"><button>♡</button><button id="openDm">♢</button></div>
   </header>
 
-  <main id="app">
+  <main>
     <section id="profileView" class="view active">
       <div class="profile-head">
-        <div class="avatar">LM</div>
+        <div class="avatar">L</div>
         <div class="stats">
-          <div><b>8</b><span>publications</span></div>
-          <div><b>247</b><span>abonnés</span></div>
-          <div><b>183</b><span>abonnements</span></div>
+          <div><b>9</b><span>publications</span></div>
+          <div><b>112</b><span>abonnés</span></div>
+          <div><b>198</b><span>abonnements</span></div>
         </div>
       </div>
       <div class="bio">
-        <b>lena.martin</b>
-        <p>Léna Martin<br>Caen 📍<br>☕️ 🐎 🌙</p>
+        <b>lola_tvr</b>
+        <p>Lola<br>Infirmière 🩺<br>🌴✈️📍 un peu partout</p>
       </div>
       <div class="buttons"><button>Modifier le profil</button><button>Partager le profil</button></div>
+
       <div class="highlights">
-        <div><div class="story-circle">☀</div><span>été</span></div>
-        <div><div class="story-circle">🐎</div><span>willow</span></div>
-        <div><div class="story-circle">🍸</div><span>soirées</span></div>
+        <div class="highlight" onclick="openStory('hawai')"><div class="story-circle hawai">🌺</div><span>Hawai</span></div>
+        <div class="highlight" onclick="openStory('perou')"><div class="story-circle perou">🗿</div><span>Pérou</span></div>
       </div>
-      <div class="tabs"><span class="selected">▦</span><span>▤</span></div>
+
+      <div class="tabs"><span class="selected">▦</span><span>♧</span></div>
       <div class="grid" id="grid"></div>
     </section>
 
     <section id="postView" class="view">
-      <div class="subbar"><button class="back">‹</button><b id="postTitle">Publication</b><span></span></div>
+      <div class="subbar"><button class="back">‹</button><b>lola_tvr</b><span>•••</span></div>
       <article class="post full">
-        <div class="post-user"><div class="mini-avatar">LM</div><b>lena.martin</b><span>•••</span></div>
+        <div class="post-user"><div class="mini-avatar">L</div><b>lola_tvr</b><span>•••</span></div>
         <div class="post-image" id="postImage"></div>
         <div class="post-actions">♡　♧　✈</div>
         <div class="likes" id="postLikes"></div>
@@ -49,19 +50,27 @@
       </article>
     </section>
 
+    <section id="storyView" class="view story-view">
+      <div class="story-top"><button class="back">‹</button><b id="storyTitle"></b><span>•••</span></div>
+      <div class="story-image" id="storyImage"></div>
+      <div class="story-caption" id="storyCaption"></div>
+    </section>
+
     <section id="dmView" class="view">
       <div class="subbar"><button class="back">‹</button><b>Messages</b><span>✎</span></div>
+      <div class="dm-search">⌕　Rechercher</div>
       <div id="threads"></div>
     </section>
 
     <section id="chatView" class="view">
-      <div class="subbar"><button class="back">‹</button><b id="chatName"></b><span>ⓘ</span></div>
+      <div class="subbar"><button class="back">‹</button><div class="chat-title"><div class="mini-avatar">L</div><b>Logan</b></div><span>ⓘ</span></div>
       <div class="chat" id="chat"></div>
+      <div class="fake-input">Message… <span>➤</span></div>
     </section>
   </main>
 
   <nav class="bottom">
-    <button id="homeBtn">⌂</button><button>⌕</button><button>＋</button><button>♡</button><button id="profileBtn"><span class="mini-avatar">LM</span></button>
+    <button id="homeBtn">⌂</button><button>⌕</button><button>＋</button><button>♡</button><button id="profileBtn"><span class="mini-avatar">L</span></button>
   </nav>
 </div>
 <script src="app.js"></script>
