@@ -1,13 +1,13 @@
 const posts=[
- {image:"assets/post1.jpg",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV.",comments:["clara_m: Courage 😂","lola_tvr: Je prends les transmissions à 7h demain."]},
- {image:"assets/post2.jpg",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawai, tu me manques déjà.",comments:["emma.r: Tu nous ramènes un peu de soleil ?"]},
- {image:"assets/post3.jpg",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser.",comments:["margot: Team petit-déj salé ici."]},
- {image:"assets/post4.jpg",likes:"44 j’aime",caption:"Dernier matin avant de rentrer. Pas envie.",comments:["lucie: Ça se voit 😭"]},
- {image:"assets/post5.jpg",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après.",comments:["anais: La vie d’infirmière quoi."]},
- {image:"assets/post6.jpg",likes:"36 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir.",comments:["julie.p: Encore des photos !!"]},
- {image:"assets/post7.jpg",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours.",comments:[]},
- {image:"assets/post8.jpg",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo.",comments:["camille: Demain ça recommence 😭"]},
- {image:"assets/post9.jpg",likes:"47 j’aime",caption:"Toujours partante pour repartir. Même demain.",comments:["emma.r: Prochaine destination ?"]}
+ {image:"post1.jpg?v=3",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV.",comments:["clara_m: Courage 😂","lola_tvr: Je prends les transmissions à 7h demain."]},
+ {image:"post2.jpg?v=3",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawai, tu me manques déjà.",comments:["emma.r: Tu nous ramènes un peu de soleil ?"]},
+ {image:"post3.jpg?v=3",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser.",comments:["margot: Team petit-déj salé ici."]},
+ {image:"post4.jpg?v=3",likes:"44 j’aime",caption:"Dernier matin avant de rentrer. Pas envie.",comments:["lucie: Ça se voit 😭"]},
+ {image:"post5.jpg?v=3",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après.",comments:["anais: La vie d’infirmière quoi."]},
+ {image:"post6.jpg?v=3",likes:"36 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir.",comments:["julie.p: Encore des photos !!"]},
+ {image:"post7.jpg?v=3",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours.",comments:[]},
+ {image:"post8.jpg?v=3",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo.",comments:["camille: Demain ça recommence 😭"]},
+ {image:"post9.jpg?v=3",likes:"47 j’aime",caption:"Toujours partante pour repartir. Même demain.",comments:["emma.r: Prochaine destination ?"]}
 ];
 
 const chat=[
@@ -53,8 +53,8 @@ const chat=[
 ];
 
 const stories={
-hawai:{title:"Hawai",image:"assets/hawai1.jpg",caption:"Quelques jours au paradis. J’y retournerais demain sans réfléchir."},
-perou:{title:"Pérou",image:"assets/perou1.jpg",caption:"Des paysages complètement dingues et beaucoup trop de photos."}
+hawai:{title:"Hawai",image:"hawai1.jpg",caption:"Quelques jours au paradis. J’y retournerais demain sans réfléchir."},
+perou:{title:"Pérou",image:"perou1.jpg",caption:"Des paysages complètement dingues et beaucoup trop de photos."}
 };
 
 const grid=document.getElementById("grid");
