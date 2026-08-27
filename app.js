@@ -1,13 +1,13 @@
 const posts=[
- {emoji:"☕️",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV.",comments:["clara_m: Courage 😂","lola_tvr: Je prends les transmissions à 7h demain."]},
- {emoji:"🌊",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawai, tu me manques déjà.",comments:["emma.r: Tu nous ramènes un peu de soleil ?"]},
- {emoji:"🥐",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser.",comments:["margot: Team petit-déj salé ici."]},
- {emoji:"🌺",likes:"44 j’aime",caption:"Dernier matin avant de rentrer. Pas envie.",comments:["lucie: Ça se voit 😭"]},
- {emoji:"🩺",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après.",comments:["anais: La vie d’infirmière quoi."]},
- {emoji:"⛰️",likes:"36 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir.",comments:["julie.p: Encore des photos !!"]},
- {emoji:"🍜",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours.",comments:[]},
- {emoji:"🌙",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo.",comments:["camille: Demain ça recommence 😭"]},
- {emoji:"✈️",likes:"47 j’aime",caption:"Toujours partante pour repartir. Même demain.",comments:["emma.r: Prochaine destination ?"]}
+ {image:"assets/post1.jpg",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV.",comments:["clara_m: Courage 😂","lola_tvr: Je prends les transmissions à 7h demain."]},
+ {image:"assets/post2.jpg",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawai, tu me manques déjà.",comments:["emma.r: Tu nous ramènes un peu de soleil ?"]},
+ {image:"assets/post3.jpg",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser.",comments:["margot: Team petit-déj salé ici."]},
+ {image:"assets/post4.jpg",likes:"44 j’aime",caption:"Dernier matin avant de rentrer. Pas envie.",comments:["lucie: Ça se voit 😭"]},
+ {image:"assets/post5.jpg",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après.",comments:["anais: La vie d’infirmière quoi."]},
+ {image:"assets/post6.jpg",likes:"36 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir.",comments:["julie.p: Encore des photos !!"]},
+ {image:"assets/post7.jpg",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours.",comments:[]},
+ {image:"assets/post8.jpg",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo.",comments:["camille: Demain ça recommence 😭"]},
+ {image:"assets/post9.jpg",likes:"47 j’aime",caption:"Toujours partante pour repartir. Même demain.",comments:["emma.r: Prochaine destination ?"]}
 ];
 
 const chat=[
@@ -53,16 +53,16 @@ const chat=[
 ];
 
 const stories={
-hawai:{title:"Hawai",emoji:"🌺🌊",caption:"Quelques jours au paradis. J’y retournerais demain sans réfléchir."},
-perou:{title:"Pérou",emoji:"🗿⛰️",caption:"Des paysages complètement dingues et beaucoup trop de photos."}
+hawai:{title:"Hawai",image:"assets/hawai1.jpg",caption:"Quelques jours au paradis. J’y retournerais demain sans réfléchir."},
+perou:{title:"Pérou",image:"assets/perou1.jpg",caption:"Des paysages complètement dingues et beaucoup trop de photos."}
 };
 
 const grid=document.getElementById("grid");
-posts.forEach((p,i)=>{const d=document.createElement("div");d.className="tile";d.textContent=p.emoji;d.onclick=()=>showPost(i);grid.appendChild(d)});
+posts.forEach((p,i)=>{const d=document.createElement("div");d.className="tile";d.innerHTML=`<img src="${p.image}" alt=""><small>♥ Logan</small>`;d.onclick=()=>showPost(i);grid.appendChild(d)});
 
 function activate(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
-function showPost(i){const p=posts[i];document.getElementById("postImage").textContent=p.emoji;document.getElementById("postImage").style.background=getComputedStyle(document.querySelectorAll(".tile")[i]).background;document.getElementById("postLikes").textContent=p.likes;document.getElementById("postCaption").innerHTML="<b>lola_tvr</b> "+p.caption;document.getElementById("postComments").innerHTML=p.comments.map(x=>`<div class="comment">${x}</div>`).join("");activate("postView")}
-function openStory(key){const s=stories[key];document.getElementById("storyTitle").textContent=s.title;document.getElementById("storyImage").textContent=s.emoji;document.getElementById("storyCaption").textContent=s.caption;activate("storyView")}
+function showPost(i){const p=posts[i];document.getElementById("postImage").innerHTML=`<img src="${p.image}" alt="">`;document.getElementById("postLikes").textContent=p.likes;document.getElementById("likedBy").innerHTML='Aimé par <b>Logan</b> et d’autres personnes <span class="heart">♥</span>';document.getElementById("postCaption").innerHTML="<b>lola_tvr</b> "+p.caption;document.getElementById("postComments").innerHTML=p.comments.map(x=>`<div class="comment">${x}</div>`).join("");activate("postView")}
+function openStory(key){const s=stories[key];document.getElementById("storyTitle").textContent=s.title;document.getElementById("storyImage").innerHTML=`<img src="${s.image}" alt="">`;document.getElementById("storyCaption").textContent=s.caption;activate("storyView")}
 function showDM(){document.getElementById("threads").innerHTML=`<div class="thread" onclick="showChat()"><div class="mini-avatar logan">L</div><div class="info"><b>Logan</b><br><small>${chat[chat.length-1][1]}</small></div></div>`;activate("dmView")}
 function showChat(){document.getElementById("chat").innerHTML=chat.map(m=>`<div class="bubble ${m[0]}">${m[1]}</div>`).join("");activate("chatView")}
 document.getElementById("openDm").onclick=showDM;
