@@ -1,13 +1,7 @@
 const posts=[
- {image:"post1.jpg?v=3",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV."},
- {image:"post2.jpg?v=3",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawai, tu me manques déjà."},
- {image:"post3.jpg?v=3",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser."},
- {image:"post4.jpg?v=3",likes:"44 j’aime",caption:"Dernier matin avant de rentrer. Pas envie."},
- {image:"post5.jpg?v=3",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après."},
- {image:"post6.jpg?v=3",likes:"36 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir."},
- {image:"post7.jpg?v=3",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours."},
- {image:"post8.jpg?v=3",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo."},
- {image:"post9.jpg?v=3",likes:"47 j’aime",caption:"Toujours partante pour repartir. Même demain."}
+ {image:"post1.jpg",likes:"46 j’aime",caption:"Petite pause avant de sortir. Ça fait du bien de décrocher un peu."},
+ {image:"post2.jpg",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawaii, tu me manques déjà."},
+ {image:"post3.jpg",likes:"48 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir."}
 ];
 
 const chat=[
@@ -52,14 +46,40 @@ const chat=[
 ["them","Marché conclu."]
 ];
 
-
 const grid=document.getElementById("grid");
-posts.forEach((p,i)=>{const d=document.createElement("div");d.className="tile";d.innerHTML=`<img src="${p.image}" alt=""><small>♥ Logan</small>`;d.onclick=()=>showPost(i);grid.appendChild(d)});
+posts.forEach((p,i)=>{
+  const d=document.createElement("div");
+  d.className="tile";
+  d.innerHTML=`<img src="${p.image}" alt=""><small>♥ Logan</small>`;
+  d.onclick=()=>showPost(i);
+  grid.appendChild(d);
+});
 
-function activate(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
-function showPost(i){const p=posts[i];document.getElementById("postImage").innerHTML=`<img src="${p.image}" alt="">`;document.getElementById("postLikes").textContent=p.likes;document.getElementById("likedBy").innerHTML='Aimé par <b>Logan</b> et d’autres personnes <span class="heart">♥</span>';document.getElementById("postCaption").innerHTML="<b>lola_tvr</b> "+p.caption;activate("postView")}
-function showDM(){document.getElementById("threads").innerHTML=`<div class="thread" onclick="showChat()"><div class="mini-avatar logan">L</div><div class="info"><b>Logan</b><br><small>${chat[chat.length-1][1]}</small></div></div>`;activate("dmView")}
-function showChat(){document.getElementById("chat").innerHTML=chat.map(m=>`<div class="bubble ${m[0]}">${m[1]}</div>`).join("");activate("chatView")}
+function activate(id){
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function showPost(i){
+  const p=posts[i];
+  document.getElementById("postImage").innerHTML=`<img src="${p.image}" alt="">`;
+  document.getElementById("postLikes").textContent=p.likes;
+  document.getElementById("likedBy").innerHTML='Aimé par <b>Logan</b> et d’autres personnes <span class="heart">♥</span>';
+  document.getElementById("postCaption").innerHTML="<b>lola_tvr</b> "+p.caption;
+  activate("postView");
+}
+
+function showDM(){
+  document.getElementById("threads").innerHTML=`<div class="thread" onclick="showChat()"><div class="mini-avatar logan">L</div><div class="info"><b>Logan</b><br><small>${chat[chat.length-1][1]}</small></div></div>`;
+  activate("dmView");
+}
+
+function showChat(){
+  document.getElementById("chat").innerHTML=chat.map(m=>`<div class="bubble ${m[0]}">${m[1]}</div>`).join("");
+  activate("chatView");
+}
+
 document.getElementById("openDm").onclick=showDM;
 document.getElementById("homeBtn").onclick=()=>activate("profileView");
 document.getElementById("profileBtn").onclick=()=>activate("profileView");

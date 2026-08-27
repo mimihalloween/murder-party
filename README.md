@@ -1,20 +1,5 @@
-# Lola / @lola_tvr
+# Lola / faux Instagram - Murder Party
 
-Version 2 du faux Instagram de la murder party.
+Version simplifiée : 3 publications, photo de profil, navigation vers les publications et messages avec Logan.
 
-Lola est présentée comme une jeune infirmière blonde avec une forte vibe voyage.
-Compte : 112 abonnés.
-Stories à la une : Hawai et Pérou.
-DM : uniquement Logan.
-
-
-Version 3 : Logan est visiblement indiqué comme ayant aimé toutes les publications, dans la grille et sur chaque publication ouverte.
-
-
-V3 photos : le compte utilise maintenant des visuels photo générés pour Lola, son profil et ses stories, intégrés localement dans `assets/`.
-
-
-Les images sont volontairement placées à la racine du dépôt pour simplifier l'upload GitHub.
-
-
-V4 : suppression des stories à la une et des commentaires. Les publications sont conservées avec le like visible de Logan.
+Aucune story à la une et aucun commentaire.
