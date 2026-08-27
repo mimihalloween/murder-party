@@ -15,3 +15,6 @@ V3 photos : le compte utilise maintenant des visuels photo générés pour Lola,
 
 
 Les images sont volontairement placées à la racine du dépôt pour simplifier l'upload GitHub.
+
+
+V4 : suppression des stories à la une et des commentaires. Les publications sont conservées avec le like visible de Logan.

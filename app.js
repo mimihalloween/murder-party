@@ -1,13 +1,13 @@
 const posts=[
- {image:"post1.jpg?v=3",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV.",comments:["clara_m: Courage 😂","lola_tvr: Je prends les transmissions à 7h demain."]},
- {image:"post2.jpg?v=3",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawai, tu me manques déjà.",comments:["emma.r: Tu nous ramènes un peu de soleil ?"]},
- {image:"post3.jpg?v=3",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser.",comments:["margot: Team petit-déj salé ici."]},
- {image:"post4.jpg?v=3",likes:"44 j’aime",caption:"Dernier matin avant de rentrer. Pas envie.",comments:["lucie: Ça se voit 😭"]},
- {image:"post5.jpg?v=3",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après.",comments:["anais: La vie d’infirmière quoi."]},
- {image:"post6.jpg?v=3",likes:"36 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir.",comments:["julie.p: Encore des photos !!"]},
- {image:"post7.jpg?v=3",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours.",comments:[]},
- {image:"post8.jpg?v=3",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo.",comments:["camille: Demain ça recommence 😭"]},
- {image:"post9.jpg?v=3",likes:"47 j’aime",caption:"Toujours partante pour repartir. Même demain.",comments:["emma.r: Prochaine destination ?"]}
+ {image:"post1.jpg?v=3",likes:"38 j’aime",caption:"Pause entre deux journées. J’ai officiellement besoin d’un café IV."},
+ {image:"post2.jpg?v=3",likes:"51 j’aime",caption:"Je pourrais facilement m’habituer à ça. Hawai, tu me manques déjà."},
+ {image:"post3.jpg?v=3",likes:"27 j’aime",caption:"Les petits plaisirs avant d’aller bosser."},
+ {image:"post4.jpg?v=3",likes:"44 j’aime",caption:"Dernier matin avant de rentrer. Pas envie."},
+ {image:"post5.jpg?v=3",likes:"32 j’aime",caption:"Quand tu dis que tu fais une sieste et que ton téléphone sonne 4 minutes après."},
+ {image:"post6.jpg?v=3",likes:"36 j’aime",caption:"Le Pérou était complètement fou. Je veux repartir."},
+ {image:"post7.jpg?v=3",likes:"29 j’aime",caption:"Je pourrais manger ça tous les jours."},
+ {image:"post8.jpg?v=3",likes:"42 j’aime",caption:"Longue journée. Maintenant dodo."},
+ {image:"post9.jpg?v=3",likes:"47 j’aime",caption:"Toujours partante pour repartir. Même demain."}
 ];
 
 const chat=[
@@ -52,17 +52,12 @@ const chat=[
 ["them","Marché conclu."]
 ];
 
-const stories={
-hawai:{title:"Hawai",image:"hawai1.jpg",caption:"Quelques jours au paradis. J’y retournerais demain sans réfléchir."},
-perou:{title:"Pérou",image:"perou1.jpg",caption:"Des paysages complètement dingues et beaucoup trop de photos."}
-};
 
 const grid=document.getElementById("grid");
 posts.forEach((p,i)=>{const d=document.createElement("div");d.className="tile";d.innerHTML=`<img src="${p.image}" alt=""><small>♥ Logan</small>`;d.onclick=()=>showPost(i);grid.appendChild(d)});
 
 function activate(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
-function showPost(i){const p=posts[i];document.getElementById("postImage").innerHTML=`<img src="${p.image}" alt="">`;document.getElementById("postLikes").textContent=p.likes;document.getElementById("likedBy").innerHTML='Aimé par <b>Logan</b> et d’autres personnes <span class="heart">♥</span>';document.getElementById("postCaption").innerHTML="<b>lola_tvr</b> "+p.caption;document.getElementById("postComments").innerHTML=p.comments.map(x=>`<div class="comment">${x}</div>`).join("");activate("postView")}
-function openStory(key){const s=stories[key];document.getElementById("storyTitle").textContent=s.title;document.getElementById("storyImage").innerHTML=`<img src="${s.image}" alt="">`;document.getElementById("storyCaption").textContent=s.caption;activate("storyView")}
+function showPost(i){const p=posts[i];document.getElementById("postImage").innerHTML=`<img src="${p.image}" alt="">`;document.getElementById("postLikes").textContent=p.likes;document.getElementById("likedBy").innerHTML='Aimé par <b>Logan</b> et d’autres personnes <span class="heart">♥</span>';document.getElementById("postCaption").innerHTML="<b>lola_tvr</b> "+p.caption;activate("postView")}
 function showDM(){document.getElementById("threads").innerHTML=`<div class="thread" onclick="showChat()"><div class="mini-avatar logan">L</div><div class="info"><b>Logan</b><br><small>${chat[chat.length-1][1]}</small></div></div>`;activate("dmView")}
 function showChat(){document.getElementById("chat").innerHTML=chat.map(m=>`<div class="bubble ${m[0]}">${m[1]}</div>`).join("");activate("chatView")}
 document.getElementById("openDm").onclick=showDM;
