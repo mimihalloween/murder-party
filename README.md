@@ -12,3 +12,6 @@ Version 3 : Logan est visiblement indiqué comme ayant aimé toutes les publicat
 
 
 V3 photos : le compte utilise maintenant des visuels photo générés pour Lola, son profil et ses stories, intégrés localement dans `assets/`.
+
+
+Les images sont volontairement placées à la racine du dépôt pour simplifier l'upload GitHub.
